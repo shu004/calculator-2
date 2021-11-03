@@ -11,12 +11,38 @@ from arithmetic import (add, subtract, multiply, divide, square, cube,
 
 while True:
     command = input("> ").split(" ")
-
-    if command[0] == "q":
+    operator = command[0]
+    if operator == "q":
         break
     else:
-        num1 = float(command[1])
-        num2 = float(command[2])
-        if command[0] == '+':
-            print(add(num1, num2))
+        if len(command) == 3:
+            num1 = float(command[1])
+            num2 = float(command[2])
+            if operator == '+':
+                print(add(num1, num2))
+            elif operator == '-':
+                print(subtract(num1, num2))
+            elif operator == '*':
+                print(multiply(num1, num2))
+            elif operator == '/':
+                print(divide(num1, num2))
+            elif operator == 'pow':
+                print(power(num1, num2))
+            elif operator == 'mod':
+                print(mod(num1, num2))
+
+        elif len(command) == 2:
+            num1 = float(command[1])
+            if operator == 'square':
+                print(square(num1))
+            elif operator == 'cube':
+                print(cube(num1))
+
+        else:
+            print("Not a valid command")
+
+
+
+
+
 
