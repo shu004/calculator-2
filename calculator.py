@@ -16,27 +16,39 @@ while True:
         break
     else:
         if len(command) == 3:
-            num1 = float(command[1])
-            num2 = float(command[2])
-            if operator == '+':
-                print(add(num1, num2))
-            elif operator == '-':
-                print(subtract(num1, num2))
-            elif operator == '*':
-                print(multiply(num1, num2))
-            elif operator == '/':
-                print(divide(num1, num2))
-            elif operator == 'pow':
-                print(power(num1, num2))
-            elif operator == 'mod':
-                print(mod(num1, num2))
+            try:
+                num1 = float(command[1])
+                num2 = float(command[2])
+
+                if operator == '+':
+                    print(add(num1, num2))
+                elif operator == '-':
+                    print(subtract(num1, num2))
+                elif operator == '*':
+                    print(multiply(num1, num2))
+                elif operator == '/':
+                    print(divide(num1, num2))
+                elif operator == 'pow':
+                    print(power(num1, num2))
+                elif operator == 'mod':
+                    print(mod(num1, num2))
+                else:
+                    print("Not a valid command")
+            except ValueError:
+                print("Please enter a number after the operator")
 
         elif len(command) == 2:
-            num1 = float(command[1])
-            if operator == 'square':
-                print(square(num1))
-            elif operator == 'cube':
-                print(cube(num1))
+            try:
+                num1 = float(command[1])
+
+                if operator == 'square':
+                    print(square(num1))
+                elif operator == 'cube':
+                    print(cube(num1))
+                else:
+                    print("Not a valid command")
+            except ValueError:
+                print("Please a number after the operator")
 
         else:
             print("Not a valid command")
