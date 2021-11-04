@@ -1,13 +1,7 @@
 """CLI application for a prefix-notation calculator."""
-
+from functools import reduce
 from arithmetic import (add, subtract, multiply, divide, square, cube,
                         power, mod, )
-
-
-# Replace this with your code
-
-#get user input save that to a variable
-#split by spaces to a list
 
 while True:
     command = input("> ").split(" ")
@@ -48,7 +42,27 @@ while True:
                 else:
                     print("Not a valid command")
             except ValueError:
-                print("Please a number after the operator")
+                print("Please enter a number after the operator")
+
+        elif len(command) > 3:
+            numbers = []
+            for num in command[1:]:
+                try:
+                    num = float(num)
+                    numbers.append(num)
+                except ValueError:
+                    print('Please enter numbers after the operator')
+
+            if operator == '+':
+                print(reduce(add, numbers))
+            elif operator == '-':
+                print(reduce(subtract, numbers))
+            elif operator == '*':
+                print(reduce(multiply, numbers))
+            elif operator == '/':
+                print(reduce(divide, numbers))
+            else:
+                print("Not a valid command")
 
         else:
             print("Not a valid command")
